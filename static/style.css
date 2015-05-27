@@ -1,0 +1,406 @@
+html{
+	width: 100%;
+}
+body{
+	font-family: sans-serif;
+	background-color: #DDDDDD;
+	width: 100%;
+	margin-left: -1%;
+}
+a{
+	text-decoration: none;
+}
+/*Pop up Elements*/
+.back{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: #25160c;
+	opacity: 0.8;
+	z-index: 1;
+}
+.box{
+	width: 60%;
+	height: 400px;
+	margin-top: 60px;
+	margin-left: 20%;
+	margin-right: 20%;
+	position: absolute;
+	background: #fff;
+	/*left: 50%;
+	top: 70px;*/
+	border-radius: 5px;
+	overflow: hidden;
+	z-index: 2;
+}
+.popUpButtons{
+	margin-left: 30%;
+	margin-top: 70px;
+}
+.reg_button{
+	float: left;
+	width: 150px;
+	height: 60px;
+	margin-left: 10px;
+	margin-top: 10px;
+	color: #aaaaa0;
+	background-color: #F5F5EE;
+	text-align: center;
+	cursor: pointer;
+}
+.reg_button h3{
+	color: #aaaaa0;
+}
+.popUp_title{
+	text-align: center;
+	margin-top: 50px;
+}
+/*Screen elements*/
+.espacador{
+	width: 10%;
+	height: 100%;
+	float: left;
+}
+.header{
+	width: 101%;
+	height: 70px;
+	display: block;
+	float: left;
+	background-color: #021F40;
+}
+.header_content{
+	width: 80%;
+	height: 100%;
+	float: left;
+}
+.header_content h1{
+	font-size: 1.6em;
+	color: #FFFFFF;
+}
+.header_content h3{
+	font-size: 0.9em;
+	color: #FFFFFF;
+}
+.header_content .mobile_menu{
+	display: none;
+	float: left;
+	width: 40px;
+	height: 40px;
+	margin-top: 10;
+	margin-left: 1%;
+	border: 2px solid #FFFFFF;
+	border-radius: 40px;
+	text-align: center;
+}
+.header_content .mobile_menu h4{
+	color: #FFFFFF;
+	font-size: 1.2em;
+	height: 10px;
+	margin: 0px;
+	margin-top: -5;
+}
+.header_content .titulo{
+	float: left;
+}
+.header_content .logIn{
+	float: right;
+}
+.header_content .salut{
+	float: right;
+	color: white;
+}
+.header_content .logIn_button{
+	float:  right;
+	min-width: 60px;
+	height: 70%;
+	margin-top: 10;
+	background-color: #E34D07;
+	text-align: center;
+	cursor: pointer;
+}
+.header_content .logIn_area{
+	height: 100px;
+	margin-top: 70px;
+	position: relative;
+	display: none;
+}
+.header_content .logIn_box{
+	height: 100px;
+	width: 200px;
+	background-color: white;
+	float: left;
+}
+.main{
+	width: 101%;
+	min-height: 500px;
+	display: block;
+	float: left;
+}
+.main_content{
+	width: 80%;
+	height: 100%;
+	float: left;
+	background-color: #FFFFFF;
+}
+.main_content h1{
+	font-size: 1.4em;
+	color: #021F40;
+}
+.main_content h3{
+	font-size: 0.8em;
+	color: #E34D07;
+	cursor: pointer;
+}
+.main_content h3:hover{
+	/*font-weight: 800;*/
+}
+.main_content h3.cat{
+	color: #A49D98;
+	cursor: default;
+}
+.main_content h3.cat:hover{
+	font-weight: bold;
+}
+.main_content .menu{
+	width: 28%;
+	height: 100%;
+	margin-left: 2%;
+	float: left;
+}
+.main_content .content{
+	width: 70%;
+	height: 100%;
+	float: left;
+}
+.main_content .content .item{
+	float: left;
+}
+.main_content .content .item .title{
+	float: left;
+	margin-left: 0%;
+	width: 100%;
+}
+.main_content .content .item .title .name{
+	float: left;
+}
+.main_content .content .item .title .categorie{
+	float: left;
+	margin-left: 2px;
+}
+.main_content .content .item .description{
+	float: left;
+}
+.main_content .content .item .description h4{
+	color: #A49D98;
+	text-align: justify;
+	margin-right: 5%;
+}
+/*EDIT FORMS*/
+.options{
+	float: left;
+	margin-left: 0%;
+}
+.b_container{
+	float: left;
+	margin-right: 5px;
+}
+.edit{
+	float: left;
+	margin-left: 0%;
+}
+.cell{
+	float: left;
+}
+.cell .input_title{
+	width: 100%;
+	height: 12px;
+	margin-bottom: 5px;
+}
+.cell .input{
+	width: 100%;
+	height: 25px;
+}
+/*SIZE*/
+._1_10{
+	margin-left: 2%;
+	width: 8%;
+}
+._2_10{
+	margin-left: 2%;
+	width: 18%;
+}
+._3_10{
+	margin-left: 2%;
+	width: 28%;
+}
+._4_10{
+	margin-left: 2%;
+	width: 38%;
+}
+._5_10{
+	margin-left: 2%;
+	width: 48%;
+}
+._6_10{
+	margin-left: 2%;
+	width: 58%;
+}
+._7_10{
+	margin-left: 2%;
+	width: 68%;
+}
+._8_10{
+	margin-left: 2%;
+	width: 78%;
+}
+._9_10{
+	margin-left: 2%;
+	width: 88%;
+}
+._10_10{
+	margin-left: 2%;
+	width: 98%;
+}
+/*Log in buttons*/
+/*Facebook log in*/
+.custom_FB_login{
+	float: right;
+	height: 30px;
+	width: 150px;
+	margin-top: 10px;
+	margin-right: 20px;
+	background-color: #4864B4;
+	border-radius: 5px;
+	box-shadow: 1px 1px 1px #424242;
+	cursor: pointer;
+}
+.custom_FB_login:hover{
+	background-color: #5B73B6;
+	box-shadow: 2px 2px 2px #424242;
+}
+.custom_FB_login .f_image{
+	height: 100%;
+	width: 35px;
+	float: left;
+	color: white;
+	font-family: 'Ropa Sans', sans-serif;
+	font-size: 1.7em;
+	font-weight: bold;
+	text-align: center;
+	/* margin-top: 5px; */
+	border-right: 1px solid #5A5B7B;
+}
+.custom_FB_login .text_hoder{
+	float: right;
+	height: 100%;
+	width: 114px;
+	vertical-align: middle;
+}
+.custom_FB_login .text_hoder .text{
+	margin-top: 5px;
+	font-size: 1.1em;
+	text-align: center;
+	color: white;
+}
+/*G plus log in*/
+#customBtn {
+	float: right;
+	margin-right: 20px;
+	margin-top: 10px;
+	display: inline-block;
+	background: #dd4b39;
+	color: white;
+	width: 150px;
+	height: 30px;
+	border-radius: 5px;
+	white-space: nowrap;
+	box-shadow: 1px 1px 1px #424242;
+}
+#customBtn:hover {
+	background: #e74b37;
+	box-shadow: 2px 2px 2px #424242;
+	cursor: hand;
+}
+span.label {
+	font-weight: bold;
+}
+span.icon {
+	background: url('https://google-developers.appspot.com/+/images/branding/btn_red_32.png') transparent 5px 50% no-repeat;
+	display: inline-block;
+	vertical-align: middle;
+	width: 35px;
+	height: 30px;
+	border-right: #bb3f30 1px solid;
+}
+span.buttonText {
+	display: inline-block;
+	vertical-align: middle;
+	padding-left: 25px;
+	padding-right: 35px;
+	font-size: 1.1em;
+	text-align: center;
+	font-weight: bold;
+	}
+/* RESPONSIVE - Middle width  (min-width: 510px) and */
+@media screen and (max-device-width: 880px), screen and (max-width: 880px){
+	.espacador{
+		width: 0px;
+		height: 100%;
+		float: left;
+	}
+	.main_content{
+		width: 100%;
+		height: 100%;
+		float: left;
+		background-color: #FFFFFF;
+	}
+	.header_content{
+		width: 100%;
+		height: 100%;
+		float: left;
+	}
+}
+/* RESPONSIVE - Small width */
+@media screen and (max-device-width: 670px), screen and (max-width: 670px){
+	.header{
+		position: fixed;
+	}
+	.main{
+		margin-top: 70px;
+	}
+	.main_content .menu{
+		display: none;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		float: left;
+	}
+	.main_content .menu .menu_items{
+		width: 50%;
+		height: 100%;
+		float: left;
+		background-color: #FFFFFF;
+	}
+	.main_content .menu .menu_back{
+		width: 50%;
+		height: 100%;
+		float: left;
+		background: #25160c;
+		opacity: 0.8;
+	}
+	.main_content .content{
+		width: 100%;
+		height: 100%;
+		float: left;
+	}
+	.header_content .mobile_menu{
+		display: block;
+	}
+}
+/*GERAL*/
+.left{
+	margin-left: 0%;
+}
+.hide{
+	display: none;
+}
