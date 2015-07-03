@@ -23,6 +23,7 @@ function newItem(){
 function editItem(elementoDOM){
 	var form = $(elementoDOM).closest('.edit');
 	var id = form.find('.item_id').html();
+	var userId = form.find('.user_id').html();
 	var name = form.find('.name').val();
 	var category = form.find('.category').val();
 	var description = form.find('.description').val();
@@ -31,7 +32,7 @@ function editItem(elementoDOM){
 		url:'/item/edit?state='+$('#stateHolder').attr('data-state'),
 		processData:false,
 		contentType: 'application/octet-stream; charset=utf-8',
-		data: JSON.stringify({'id':id,'name':name,'category':category,'description':description}),
+		data: JSON.stringify({'id':id,'userId':userId,'name':name,'category':category,'description':description}),
 		success: function(response){
 			console.log('Item edited');
 			window.location.href="/"
@@ -44,19 +45,22 @@ function editItem(elementoDOM){
 };
 function checkDelete(elementoDOM){
 	var id = $(elementoDOM).attr('data-itemId');
+	var userId = $(elementoDOM).attr('data-userId');
 	var confirmation = $('#deleteConfirmation');
 	confirmation.find('.item_id').text(id);
+	confirmation.find('.user_id').text(userId);
 	confirmation.fadeIn(300);
 }
 function deleteItem(elementoDOM){
 	var form = $(elementoDOM).closest('.delete_confirmation');
 	var id = form.find('.item_id').html();
+	var userId = form.find('.user_id').html();
 	$.ajax({
 		type:'POST',
 		url:'/item/delete?state='+$('#stateHolder').attr('data-state'),
 		processData:false,
 		contentType: 'application/octet-stream; charset=utf-8',
-		data: JSON.stringify({'id':id}),
+		data: JSON.stringify({'id':id,'userId':userId}),
 		success: function(response){
 			console.log('Item deleted');
 			window.location.href="/"

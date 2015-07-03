@@ -33,6 +33,7 @@
 			<div class="back" onclick="hideBack(this)"></div>
 			<div class="box delete_confirmation">
 				<div style="display:none" class="item_id"></div>
+				<div style="display:none" class="user_id"></div>
 				<div class="_10_10 cell left">
 					<div class="popUp_title"><h3 class="cat">Are you sure you want to delete this item?</h3></div>
 					<div class="popUpButtons">
@@ -102,30 +103,11 @@
 						<a href="/" class="menu_item _10_10">
 							<h3>All</h3>
 						</a>
-						<a href="/category?category=Soccer&state={{STATE}}" class="menu_item _10_10">
-							<h3>Soccer</h3>
-						</a>
-						<a href="/category?category=Basketball&state={{STATE}}" class="menu_item _10_10">
-							<h3>Basketball</h3>
-						</a>
-						<a href="/category?category=Baseball&state={{STATE}}" class="menu_item _10_10">
-							<h3>Baseball</h3>
-						</a>
-						<a href="/category?category=Frisbee&state={{STATE}}" class="menu_item _10_10">
-							<h3>Frisbee</h3>
-						</a>
-						<a href="/category?category=Snowboarding&state={{STATE}}" class="menu_item _10_10">
-							<h3>Snowboarding</h3>
-						</a>
-						<a href="/category?category=Rock%20Climbing&state={{STATE}}" class="menu_item _10_10">
-							<h3>Rock Climbing</h3>
-						</a>
-						<a href="/category?category=Skate&state={{STATE}}" class="menu_item _10_10">
-							<h3>Skate</h3>
-						</a>
-						<a href="/category?category=Hockey&state={{STATE}}" class="menu_item _10_10">
-							<h3>Hockey</h3>
-						</a>
+						{% for cat in categorys %}
+							<a href="/category?category={{cat[1]}}&state={{STATE}}" class="menu_item _10_10">
+								<h3>{{cat[0]}}</h3>
+							</a>
+						{% endfor %}
 					</div>
 					<div class="menu_back" onclick="showMenu()"></div>
 				</div>
@@ -144,20 +126,15 @@
 						</div>
 						<div class="edit _10_10 hide" id="add_item">
 							<div class="_5_10 cell left">
-								<div class="input_title"><h3 class="cat">Name</h3></div>
+								<div class="input_title"><h3 class="cat">Name*</h3></div>
 								<input class="input name">
 							</div>
 							<div class="_5_10 cell">
-								<div class="input_title"><h3 class="cat">Category</h3></div>
+								<div class="input_title"><h3 class="cat">Category*</h3></div>
 								<select class="input category">
-									<option value="Soccer">Soccer</option>
-									<option value="Basketball">Basketball</option>
-									<option value="Baseball">Baseball</option>
-									<option value="Frisbee">Frisbee</option>
-									<option value="Snowboarding">Snowboarding</option>
-									<option value="Rock Climbing">Rock Climbing</option>
-									<option value="Skate">Skate</option>
-									<option value="Hockey">Hockey</option>
+									{% for cat in categorys %}
+										<option value="{{cat[0]}}">{{cat[0]}}</option>
+									{% endfor %}
 								</select>
 							</div>
 							<div class="_10_10 cell left">
@@ -183,30 +160,26 @@
 									<div class="options _10_10 left">
 										<div class="b_container b_edit" data-status="hide" onclick="showEdit(this)"><h3>Edit</h3></div>
 										<div class="b_container"><h3 class="cat">|</h3></div>
-										<div class="b_container" data-itemId="{{item['id']}}" onclick="checkDelete(this)"><h3>Delete</h3></div>
+										<div class="b_container" data-userId="{{item['user_id']}}" data-itemId="{{item['id']}}" onclick="checkDelete(this)"><h3>Delete</h3></div>
 									</div>
 									<div class="edit _10_10 left hide">
 										<div style="display:none" class="item_id" data-itemId="{{item['id']}}">{{item['id']}}</div>
+										<div style="display:none" class="user_id" data-userId="{{item['user_id']}}">{{item['user_id']}}</div>
 										<div class="_5_10 cell left">
-											<div class="input_title"><h3 class="cat">Name</h3></div>
-											<input class="input name">
+											<div class="input_title"><h3 class="cat">Name*</h3></div>
+											<input class="input name" value="{{item['title']}}">
 										</div>
 										<div class="_5_10 cell">
-											<div class="input_title"><h3 class="cat">Category</h3></div>
+											<div class="input_title"><h3 class="cat">Category*</h3></div>
 											<select class="input category">
-												<option value="Soccer">Soccer</option>
-												<option value="Basketball">Basketball</option>
-												<option value="Baseball">Baseball</option>
-												<option value="Frisbee">Frisbee</option>
-												<option value="Snowboarding">Snowboarding</option>
-												<option value="Rock Climbing">Rock Climbing</option>
-												<option value="Skate">Skate</option>
-												<option value="Hockey">Hockey</option>
+												{% for cat in categorys %}
+													<option value="{{cat[0]}}" {% if cat[0] == item['category'] %}selected{% endif %}>{{cat[0]}}</option>
+												{% endfor %}
 											</select>
 										</div>
 										<div class="_10_10 cell left">
 											<div class="input_title"><h3 class="cat">Description</h3></div>
-											<input class="input description">
+											<input class="input description" value="{{item['description']}}">
 										</div>
 										<div class="options _10_10 left">
 											<div class="b_container" onclick="editItem(this)"><h3>Submit</h3></div>
@@ -218,90 +191,6 @@
 							</div>
 						</div>
 					{% endfor %}
-					<!--
-					<div class="item _10_10">
-						<div class="title _10_10" data-status="hide" onclick="showDescription(this)">
-							<div class="name"><h3>Stick</h3></div>
-							<div class="categorie"><h3 class="cat">(Hockey)</h3></div>
-						</div>
-						<div class="description _10_10 hide">
-							<h4>Descrição do Item Stick, bla bla bla bezouro folha de uva aviao carroca pacote igreja jaburu tirica preguissa chuck norris tiriguaçu jaguatirica atropelada paralelepipedo urubu gonorreia gorgonzola pulga pugilista hemafrodita edinanci pepeca fogo morro jao junina quitanda</h4>
-							<div class="options _10_10 left">
-								<div class="b_container b_edit" data-status="hide" onclick="showEdit(this)"><h3>Edit</h3></div>
-								<div class="b_container"><h3 class="cat">|</h3></div>
-								<div class="b_container"><h3>Delete</h3></div>
-							</div>
-							<div class="edit _10_10 left hide">
-								<div class="_5_10 cell left">
-									<div class="input_title"><h3 class="cat">Name</h3></div>
-									<input class="input name">
-								</div>
-								<div class="_5_10 cell">
-									<div class="input_title"><h3 class="cat">Category</h3></div>
-									<select class="input category">
-										<option value="Soccer">Soccer</option>
-										<option value="Basketball">Basketball</option>
-										<option value="Baseball">Baseball</option>
-										<option value="Frisbee">Frisbee</option>
-										<option value="Snowboarding">Snowboarding</option>
-										<option value="Rock Climbing">Rock Climbing</option>
-										<option value="Skate">Skate</option>
-										<option value="Hockey">Hockey</option>
-									</select>
-								</div>
-								<div class="_10_10 cell left">
-									<div class="input_title"><h3 class="cat">Description</h3></div>
-									<input class="input description">
-								</div>
-								<div class="options _10_10 left">
-									<div class="b_container"><h3>Submit</h3></div>
-									<div class="b_container"><h3 class="cat">|</h3></div>
-									<div class="b_container" onclick="hideEdit(this)"><h3>Cancel</h3></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item _10_10">
-						<div class="name"><h3>Goggles12345678123456723456734567</h3></div>
-						<div class="categorie"><h3 class="cat">(Snowboarding)</h3></div>
-					</div>
-					<div class="item _10_10">
-						<div class="name"><h3>Ball</h3></div>
-						<div class="categorie"><h3 class="cat">(Soccer)</h3></div>
-					</div>
-					<div class="item _10_10">
-						<div class="name"><h3>Shape</h3></div>
-						<div class="categorie"><h3 class="cat">(Skate)</h3></div>
-					</div>
-					<div class="item _10_10">
-						<div class="name"><h3>Gloves</h3></div>
-						<div class="categorie"><h3 class="cat">(Hockey)</h3></div>
-					</div>
-					<div class="item _10_10">
-						<div class="name"><h3>Snowboard</h3></div>
-						<div class="categorie"><h3 class="cat">(Snowboarding)</h3></div>
-					</div>
-					<div class="item _10_10">
-						<div class="name"><h3>Bat</h3></div>
-						<div class="categorie"><h3 class="cat">(Baseball)</h3></div>
-					</div>
-					<div class="item _10_10">
-						<div class="name"><h3>Jersey</h3></div>
-						<div class="categorie"><h3 class="cat">(Soccer)</h3></div>
-					</div>
-					<div class="item _10_10">
-						<div class="name"><h3>Barings</h3></div>
-						<div class="categorie"><h3 class="cat">(Skate)</h3></div>
-					</div>
-					<div class="item _10_10">
-						<div class="name"><h3>Shinguard</h3></div>
-						<div class="categorie"><h3 class="cat">(Soccer)</h3></div>
-					</div>
-					<div class="item _10_10">
-						<div class="name"><h3>Skateboard</h3></div>
-						<div class="categorie"><h3 class="cat">(Skate)</h3></div>
-					</div>
-				-->
 				</div>
 			</div>
 			<div class="espacador"></div>
